@@ -108,7 +108,7 @@ kubectl config get-contexts -o name
 
 kubectl config get-contexts
 
-kubectl config use-context
+kubectl config use-context <context name>
 
 kubectl config view --minify
 
