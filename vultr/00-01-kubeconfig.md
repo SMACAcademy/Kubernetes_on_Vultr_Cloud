@@ -53,10 +53,10 @@ kubectl get nodes
 
 
 ```
-KUBECONFIG=$HOME/.kube/dev_cluster_config
+export KUBECONFIG=$HOME/.kube/dev_cluster_config
 
-KUBECONFIG=$HOME/.kube/prod_config.yaml
-KUBECONFIG=$HOME/.kube/qa_config.yaml
+export KUBECONFIG=$HOME/.kube/prod_config.yaml
+export KUBECONFIG=$HOME/.kube/qa_config.yaml
 
 
 kubectl config get-contexts
