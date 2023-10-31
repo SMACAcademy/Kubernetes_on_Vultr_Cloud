@@ -98,7 +98,7 @@ Let’s assume you have three Kubeconfig files in the $HOME/.kube/ directory.
 
 ```
 KUBECONFIG=config:dev_config:qa_config kubectl config view --merge --flatten > config.new
-KUBECONFIG=$HOME/.kube/config:$HOME/.kube/prod_config.yaml:$HOME/.kube/qa_config.yaml kubectl config view --merge --flatten > $HOME/.kube/config.new
+KUBECONFIG=$HOME/.kube/config:$HOME/.kube/prod_config.yaml:$HOME/.kube/qa_config.yaml kubectl config view --merge --flatten=true > $HOME/.kube/config.new
 
 mv $HOME/.kube/config $HOME/.kube/config.old
 
@@ -106,10 +106,14 @@ mv $HOME/.kube/config.new $HOME/.kube/config
 
 kubectl config get-contexts -o name
 
+kubectl config get-contexts
+
 kubectl config use-context
 
 kubectl config view --minify
 
+
+kubectl get nodes
 ```
 
 
