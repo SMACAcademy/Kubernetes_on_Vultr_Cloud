@@ -55,6 +55,10 @@ kubectl get nodes
 ```
 KUBECONFIG=$HOME/.kube/dev_cluster_config
 
+KUBECONFIG=$HOME/.kube/prod_config.yaml
+KUBECONFIG=$HOME/.kube/qa_config.yaml
+
+
 kubectl config get-contexts
 
 kubectl get nodes
@@ -67,8 +71,17 @@ kubectl get nodes
 
 ```
 kubectl get nodes --kubeconfig=$HOME/.kube/dev_cluster_config
+kubectl get nodes --kubeconfig=$HOME/.kube/prod_config.yaml
+kubectl get nodes --kubeconfig=$HOME/.kube/qa_config.yaml
+
+
 
 KUBECONFIG=$HOME/.kube/dev_cluster_config kubectl get nodes
+KUBECONFIG=$HOME/.kube/prod_config.yaml kubectl get nodes
+KUBECONFIG=$HOME/.kube/qa_config.yaml kubectl get nodes
+
+kubectl config view --minify
+
 
 
 ```
@@ -85,12 +98,15 @@ Let’s assume you have three Kubeconfig files in the $HOME/.kube/ directory.
 
 ```
 KUBECONFIG=config:dev_config:qa_config kubectl config view --merge --flatten > config.new
+KUBECONFIG=$HOME/.kube/config:$HOME/.kube/prod_config.yaml:$HOME/.kube/qa_config.yaml kubectl config view --merge --flatten > $HOME/.kube/config.new
 
 mv $HOME/.kube/config $HOME/.kube/config.old
 
 mv $HOME/.kube/config.new $HOME/.kube/config
 
 kubectl config get-contexts -o name
+
+kubectl config use-context
 
 kubectl config view --minify
 
