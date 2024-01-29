@@ -37,7 +37,7 @@ kubectl get nodes -o wide
 kubectl run <desired-pod-name> --image <Container-Image> 
 
 # Replace Pod Name, Container Image
-kubectl run my-pod-alpha --image nginx  
+kubectl run my-first-alpha --image nginx  
 ```  
 
 ### 1.1.3. List Pods
